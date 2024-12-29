@@ -7,7 +7,8 @@ ob_start();
         <article class="tarifs">
             <h2 class="title">Les Tarifs et Horaires</h2>
             <p class="tarifs_p">
-                TARIFS <span id="year-range"></span> (septembre à juin) Cotisation et Licence CUN CBC <span id="next-year"></span> (22€)
+                TARIFS <span id="year-range"></span> (septembre à juin) Cotisation et Licence CUN CBC <span
+                    id="next-year"></span> (licence obligatoire pour les compétiteurs et facultative pour les adhérents)
             </p>
 
             <table>
