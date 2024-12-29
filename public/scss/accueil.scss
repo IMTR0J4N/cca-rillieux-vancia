@@ -200,6 +200,7 @@ header {
     .actualite {
       article {
         width: 50%;
+        max-width: 854px;
         .content_article {
           .title_time {
             font-size: 1rem;
