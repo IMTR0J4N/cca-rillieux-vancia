@@ -1,0 +1,123 @@
+.nos_actualites {
+  margin: 3rem 0 4rem;
+  section {
+    margin: 0 auto;
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 1.5rem;
+    .actualites {
+      p {
+        text-align: center;
+      }
+      width: 85%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem 1.5rem;
+      article {
+        width: 22rem;
+        background-color: $primary;
+        border-radius: 0.3rem;
+        .content_article {
+          cursor: pointer;
+          position: relative;
+          img {
+            width: 100%;
+            height: 15rem;
+            background-color: $secondary;
+            border-radius: 0.2rem;
+            border: solid 1px;
+          }
+          .title_time {
+            position: absolute;
+            bottom: 0.2rem;
+            color: $w;
+            font-size: 0.7rem;
+            width: 100%;
+            background: linear-gradient(0deg, $b 0%, rgba(0, 0, 0, 0) 100%);
+            padding: 0.8rem;
+            border-bottom-left-radius: 0.2rem;
+            border-bottom-right-radius: 0.2rem;
+            @include flex(end, end);
+            flex-direction: column;
+            gap: 0.3rem;
+          }
+        }
+        p {
+          padding: 1rem;
+          width: 100%;
+          height: 17vh;
+          overflow: hidden auto;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+
+  .view_image {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem 0;
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      overflow-y: scroll;
+      height: 80%;
+      border-radius: 0.5rem;
+    }
+  }
+
+  ul {
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    li a {
+      background-color: $primary;
+      padding: 0.85rem 1rem;
+      border-radius: 0.3rem;
+      &:hover {
+        background: darken-color($primary, 10%);
+      }
+      &.selected:hover {
+        background: darken-color($secondary, 10%);
+      }
+      &.selected {
+        background-color: $secondary;
+      }
+    }
+    li p {
+      margin-top: 0.3rem;
+      font-weight: bold;
+      letter-spacing: 0.1rem;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nos_actualites {
+    ul {
+      gap: 1rem;
+      li p {
+        letter-spacing: 0.3rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  .nos_actualites {
+    margin: 2rem 0;
+  }
+}
