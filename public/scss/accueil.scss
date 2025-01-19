@@ -101,7 +101,6 @@ header {
 
     img {
       overflow-y: scroll;
-      height: 80%;
       border-radius: 0.5rem;
     }
   }
@@ -222,6 +221,9 @@ header {
       .content_title_description {
         width: 50%;
       }
+    }
+    .view_image img {
+      height: 80%;
     }
   }
 }
