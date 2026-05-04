@@ -1,6 +1,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: false, middleware: "guest" })
 
+const { fetch: fetchSession } = useUserSession()
+
 const form = reactive({ username: "", password: "" })
 const error = ref<string | null>(null)
 const loading = ref(false)
@@ -11,6 +13,7 @@ async function submit() {
   loading.value = true
   try {
     await $fetch("/api/auth/login", { method: "POST", body: form })
+    await fetchSession()
     await navigateTo("/admin")
   } catch (e: any) {
     error.value = e.data?.message ?? "Identifiants incorrects"
