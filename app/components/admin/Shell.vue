@@ -38,8 +38,9 @@ const initials = computed(() =>
         <div :style="{
           width: '40px', height: '40px', background: 'rgba(255,255,255,.1)',
           borderRadius: '50%', display: 'grid', placeItems: 'center',
-          fontFamily: 'var(--font-display)', fontStyle: 'italic', color: '#fbf7ef', fontWeight: '600',
-        }">cca</div>
+        }">
+          <img src="/assets/logo.svg" alt="CCA" style="width:22px;height:22px;filter:brightness(0)invert(1)" />
+        </div>
         <div>
           <div :style="{ fontFamily: 'var(--font-display)', fontSize: '16px', color: '#fbf7ef', fontWeight: '500' }">Admin</div>
           <div :style="{ fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#c8c0a8' }">CCA Vancia</div>
