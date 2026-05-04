@@ -18,7 +18,7 @@ function isActive(url: string) {
   <nav class="cca-nav">
     <div class="cca-nav__brand">
       <NuxtLink to="/" class="cca-nav__mark">
-        <img src="/assets/logo.svg" alt="CCA" style="width:22px;height:22px;filter:brightness(0)invert(1)" />
+        <img src="/assets/logo.svg" alt="CCA" style="width:100%;height:100%;filter:brightness(0)invert(1)" />
       </NuxtLink>
       <div class="cca-nav__name">
         Club du chien d'accompagnement

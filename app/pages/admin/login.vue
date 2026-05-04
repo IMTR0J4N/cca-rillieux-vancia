@@ -33,7 +33,7 @@ async function submit() {
     }">
       <div :style="{ display: 'flex', alignItems: 'center', gap: '14px' }">
         <div :style="{ width: '48px', height: '48px', background: 'rgba(255,255,255,.15)', borderRadius: '50%', display: 'grid', placeItems: 'center' }">
-          <img src="/assets/logo.svg" alt="CCA" style="width:26px;height:26px;filter:brightness(0)invert(1)" />
+          <img src="/assets/logo.svg" alt="CCA" style="width:100%;height:100%;filter:brightness(0)invert(1)" />
         </div>
         <div :style="{ fontFamily: 'var(--font-display)', fontSize: '18px' }">CCA Rillieux-Vancia</div>
       </div>

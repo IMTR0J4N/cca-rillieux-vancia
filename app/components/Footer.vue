@@ -2,7 +2,7 @@
   <footer class="cca-footer">
     <div class="cca-footer__brand">
       <div class="mark">
-        <img src="/assets/logo.svg" alt="CCA" style="width:28px;height:28px;filter:brightness(0)invert(1)" />
+        <img src="/assets/logo.svg" alt="CCA" style="width:100%;height:100%;filter:brightness(0)invert(1)" />
       </div>
       <div :style="{ fontFamily: 'var(--font-display)', fontSize: '18px', color: '#fbf7ef' }">
         Club du chien<br>d'accompagnement

@@ -39,7 +39,7 @@ const initials = computed(() =>
           width: '40px', height: '40px', background: 'rgba(255,255,255,.1)',
           borderRadius: '50%', display: 'grid', placeItems: 'center',
         }">
-          <img src="/assets/logo.svg" alt="CCA" style="width:22px;height:22px;filter:brightness(0)invert(1)" />
+          <img src="/assets/logo.svg" alt="CCA" style="width:100%;height:100%;filter:brightness(0)invert(1)" />
         </div>
         <div>
           <div :style="{ fontFamily: 'var(--font-display)', fontSize: '16px', color: '#fbf7ef', fontWeight: '500' }">Admin</div>
