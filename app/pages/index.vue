@@ -5,25 +5,25 @@ const activities = [
   {
     title: "Éducation chiots",
     tag: "École du chiot",
-    img: "/assets/images/activites/education.webp",
+    img: "/assets/activites/education.webp",
     desc: "De 2 à 12 mois, on pose les bases dans la douceur. Socialisation, premiers ordres, propreté, marche en laisse — votre chiot apprend en jouant.",
   },
   {
     title: "Éducation chiens adultes",
     tag: "Tous niveaux",
-    img: "/assets/images/activites/education.webp",
+    img: "/assets/activites/education.webp",
     desc: "Que votre chien débute ou qu'il ait besoin d'un cadre, nos moniteurs adaptent les exercices. Rappel, marche au pied, gestion des émotions.",
   },
   {
     title: "Sauvetage en compétition",
     tag: "Compétition",
-    img: "/assets/images/activites/sauvetage.webp",
+    img: "/assets/activites/sauvetage.webp",
     desc: "Une discipline exigeante et passionnante. Le chien apprend à pister, retrouver et secourir des personnes. Test préalable nécessaire.",
   },
   {
     title: "Obéissance",
     tag: "Compétition",
-    img: "/assets/images/activites/obeissance.webp",
+    img: "/assets/activites/obeissance.webp",
     desc: "Précision, complicité, finesse. L'obéissance pousse le travail du binôme maître-chien à son plus haut niveau. Test préalable nécessaire.",
   },
 ]
@@ -40,7 +40,7 @@ const a = computed(() => activities[actIndex.value])
   <!-- HERO -->
   <section :style="{
     position: 'relative', height: '560px',
-    backgroundImage: 'url(/assets/images/header.webp)',
+    backgroundImage: 'url(/assets/header.webp)',
     backgroundSize: 'cover', backgroundPosition: 'center 40%',
   }">
     <div :style="{ position: 'absolute', inset: '0', background: 'linear-gradient(180deg, rgba(42,37,32,0.15) 0%, rgba(42,37,32,0.55) 100%)' }" />

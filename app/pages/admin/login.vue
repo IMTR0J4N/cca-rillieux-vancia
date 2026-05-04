@@ -26,7 +26,7 @@ async function submit() {
 <template>
   <div :style="{ background: 'var(--bg)', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '100vh' }">
     <div :style="{
-      backgroundImage: `linear-gradient(135deg, rgba(45,70,48,.85), rgba(45,70,48,.95)), url(/assets/images/header.webp)`,
+      backgroundImage: `linear-gradient(135deg, rgba(45,70,48,.85), rgba(45,70,48,.95)), url(/assets/header.webp)`,
       backgroundSize: 'cover', backgroundPosition: 'center',
       padding: '56px', color: '#fbf7ef',
       display: 'flex', flexDirection: 'column', justifyContent: 'space-between',

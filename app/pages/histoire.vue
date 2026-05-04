@@ -8,7 +8,7 @@
 
   <section :style="{ padding: '32px 56px 96px', maxWidth: '960px', margin: '0 auto' }">
     <figure :style="{ margin: '0', borderRadius: 'var(--r-xl)', overflow: 'hidden', border: '1px solid var(--line)' }">
-      <AppImage src="/assets/images/histoire-du-club.webp" label="Le terrain du club" :style="{ aspectRatio: '16/9' }" />
+      <AppImage src="/assets/histoire-du-club.webp" label="Le terrain du club" :style="{ aspectRatio: '16/9' }" />
       <figcaption :style="{ padding: '14px 20px', fontSize: '13px', color: 'var(--ink-3)', background: 'var(--surface)' }">
         Le terrain boisé du club, à Vancia.
       </figcaption>
