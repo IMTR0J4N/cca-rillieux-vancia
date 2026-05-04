@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum TimeOfDay {
+  MORNING
+  AFTERNOON
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  publishedAt DateTime @map("published_at")
+  image       String   @db.VarChar(255)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([publishedAt(sort: Desc)])
+  @@map("posts")
+}
+
+model Admin {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique @db.VarChar(255)
+  password    String    @db.VarChar(255)
+  role        Role      @default(ADMIN)
+  lastLoginAt DateTime? @map("last_login_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("admins")
+}
+
+model Member {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  description String   @db.Text
+  photo       String   @db.VarChar(255)
+  position    Int
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([position])
+  @@map("members")
+}
+
+model Schedule {
+  id        Int       @id @default(autoincrement())
+  timeOfDay TimeOfDay @map("time_of_day")
+  slot      String    @db.VarChar(20)
+  label     String    @db.VarChar(120)
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  @@index([timeOfDay, slot])
+  @@map("schedules")
+}
+
+model Pricing {
+  id        Int      @id @default(autoincrement())
+  label     String   @db.VarChar(30)
+  firstDog  Decimal  @db.Decimal(8, 2) @map("first_dog")
+  secondDog Decimal  @db.Decimal(8, 2) @map("second_dog")
+  perDog    Decimal  @db.Decimal(8, 2) @map("per_dog")
+  position  Int
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([position])
+  @@map("pricing")
+}
