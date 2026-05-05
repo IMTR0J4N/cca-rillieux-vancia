@@ -1,0 +1,35 @@
+{
+  "name": "cca-vancia",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "prisma generate && nuxt prepare",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@tailwindcss/vite": "^4.2.4",
+    "bcryptjs": "^3.0.3",
+    "nuxt": "^4.4.4",
+    "nuxt-auth-utils": "^0.5.29",
+    "pg": "^8.20.0",
+    "prisma": "^7.8.0",
+    "tailwindcss": "^4.2.4",
+    "vue": "^3.5.33",
+    "vue-router": "^5.0.6",
+    "zod": "^4.4.3"
+  },
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
+    "@types/pg": "^8.20.0",
+    "tsx": "^4.21.0"
+  }
+}

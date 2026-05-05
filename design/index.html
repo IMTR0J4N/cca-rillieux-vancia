@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>CCA Vancia — Refonte du site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { margin: 0; background: #f0eee9; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="components/shared.jsx"></script>
+  <script type="text/babel" src="components/page-home.jsx"></script>
+  <script type="text/babel" src="components/page-tarifs.jsx"></script>
+  <script type="text/babel" src="components/page-public.jsx"></script>
+  <script type="text/babel" src="components/page-admin-1.jsx"></script>
+  <script type="text/babel" src="components/page-admin-2.jsx"></script>
+  <script type="text/babel" src="components/page-admin-3.jsx"></script>
+  <script type="text/babel" src="components/page-admin-4.jsx"></script>
+  <script type="text/babel" src="components/page-mobile.jsx"></script>
+  <script type="text/babel" src="components/page-mobile-2.jsx"></script>
+
+  <script type="text/babel">
+    const { HomePage, TarifsPage, EquipePage, HistoirePage, ActualitesPage } = window;
+    const { AdminLoginPage, AdminDashboardPage } = window;
+    const { ActualitesManagerPage, EquipeManagerPage, TarifsManagerPage, HorairesManagerPage, AdminsManagerPage } = window;
+    const { InsertActualitePage, InsertEquipierPage, InsertTarifPage, InsertHorairePage, DeleteModal } = window;
+    const { EditActualitePage, EditEquipierPage, EditTarifPage, EditHorairePage, InsertAdminPage, EditAdminPage, ValidationActualitePage, ValidationLoginPage } = window;
+    const { MobileFrame, MobileHome, MobileTarifs, MobileNavOpen, MobileEquipe, MobileMapContact } = window;
+
+    // Common artboard size for desktop pages — wide screen, scrollable
+    const W = 1280, H = 980;
+
+    const App = () => (
+      <DesignCanvas>
+        {/* ───────── PUBLIC SITE — DESKTOP ───────── */}
+        <DCSection id="public-desktop" title="Site public — Desktop"
+          subtitle="Refonte des 5 pages côté visiteur. Palette terre + forêt, type Fraunces × Inter, mises en page éditoriales.">
+          <DCArtboard id="home" label="01 · Accueil" width={W} height={H}>
+            <HomePage />
+          </DCArtboard>
+          <DCArtboard id="tarifs" label="02 · Tarifs & Horaires" width={W} height={H + 200}>
+            <TarifsPage />
+          </DCArtboard>
+          <DCArtboard id="equipe" label="03 · L'équipe" width={W} height={H + 100}>
+            <EquipePage />
+          </DCArtboard>
+          <DCArtboard id="histoire" label="04 · Histoire du club" width={W} height={H + 200}>
+            <HistoirePage />
+          </DCArtboard>
+          <DCArtboard id="actus" label="05 · Anciennes actualités" width={W} height={H}>
+            <ActualitesPage />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── ADMIN — LOGIN + DASHBOARD ───────── */}
+        <DCSection id="admin-shell" title="Espace admin — Entrée"
+          subtitle="Login dédié et tableau de bord. Sidebar foncée pour signaler le mode gestion, contenu sur surface claire.">
+          <DCArtboard id="login" label="06 · Connexion admin" width={1280} height={800}>
+            <AdminLoginPage />
+          </DCArtboard>
+          <DCArtboard id="dashboard" label="07 · Tableau de bord" width={1280} height={900}>
+            <AdminDashboardPage />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── ADMIN — MANAGERS ───────── */}
+        <DCSection id="admin-managers" title="Espace admin — Listes"
+          subtitle="Tableaux de gestion : actualités, équipe (avec drag-and-drop), tarifs, horaires, admins.">
+          <DCArtboard id="m-actu" label="08 · Liste actualités" width={1280} height={760}>
+            <ActualitesManagerPage />
+          </DCArtboard>
+          <DCArtboard id="m-equipe" label="09 · Liste équipe" width={1280} height={820}>
+            <EquipeManagerPage />
+          </DCArtboard>
+          <DCArtboard id="m-tarif" label="10 · Liste tarifs" width={1280} height={620}>
+            <TarifsManagerPage />
+          </DCArtboard>
+          <DCArtboard id="m-horaire" label="11 · Liste horaires" width={1280} height={720}>
+            <HorairesManagerPage />
+          </DCArtboard>
+          <DCArtboard id="m-admins" label="12 · Liste admins" width={1280} height={680}>
+            <AdminsManagerPage />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── ADMIN — FORMULAIRES ───────── */}
+        <DCSection id="admin-forms" title="Espace admin — Formulaires"
+          subtitle="Création / édition. Conseils contextuels en aside, validation visuelle sur les champs.">
+          <DCArtboard id="f-actu" label="13 · Nouvelle actualité" width={1280} height={920}>
+            <InsertActualitePage />
+          </DCArtboard>
+          <DCArtboard id="f-equipe" label="14 · Nouveau membre" width={1280} height={920}>
+            <InsertEquipierPage />
+          </DCArtboard>
+          <DCArtboard id="f-tarif" label="15 · Nouveau tarif" width={1280} height={760}>
+            <InsertTarifPage />
+          </DCArtboard>
+          <DCArtboard id="f-horaire" label="16 · Nouveau créneau" width={1280} height={760}>
+            <InsertHorairePage />
+          </DCArtboard>
+          <DCArtboard id="modal-delete" label="17 · Modale de suppression" width={1280} height={800}>
+            <DeleteModal />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── ADMIN — ÉDITION (pré-rempli) ───────── */}
+        <DCSection id="admin-edit" title="Espace admin — Modification"
+          subtitle="Variantes pré-remplies des formulaires : modification d'une fiche existante avec bouton de suppression aligné à gauche.">
+          <DCArtboard id="e-actu" label="18 · Modifier une actualité" width={1280} height={920}>
+            <EditActualitePage />
+          </DCArtboard>
+          <DCArtboard id="e-equipe" label="19 · Modifier un membre" width={1280} height={920}>
+            <EditEquipierPage />
+          </DCArtboard>
+          <DCArtboard id="e-tarif" label="20 · Modifier un tarif" width={1280} height={760}>
+            <EditTarifPage />
+          </DCArtboard>
+          <DCArtboard id="e-horaire" label="21 · Modifier un créneau" width={1280} height={760}>
+            <EditHorairePage />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── ADMIN — GESTION DES ADMINS ───────── */}
+        <DCSection id="admin-admins" title="Espace admin — Comptes admin"
+          subtitle="Création et édition d'un compte admin. Choix du rôle (admin / super-admin) avec descriptions explicites.">
+          <DCArtboard id="f-admin" label="22 · Nouvel admin" width={1280} height={920}>
+            <InsertAdminPage />
+          </DCArtboard>
+          <DCArtboard id="e-admin" label="23 · Modifier un admin" width={1280} height={920}>
+            <EditAdminPage />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── ADMIN — ERREURS ───────── */}
+        <DCSection id="admin-errors" title="États d'erreur — Validation"
+          subtitle="Messages clairs en français : bandeau de synthèse, champs surlignés, message d'aide sous chaque erreur, CTA désactivé.">
+          <DCArtboard id="err-form" label="24 · Formulaire avec erreurs" width={1280} height={1000}>
+            <ValidationActualitePage />
+          </DCArtboard>
+          <DCArtboard id="err-login" label="25 · Connexion échouée" width={1280} height={800}>
+            <ValidationLoginPage />
+          </DCArtboard>
+        </DCSection>
+
+        {/* ───────── MOBILE ───────── */}
+        <DCSection id="mobile" title="Mobile — Pages clés"
+          subtitle="Le club doit être consultable en deux pouces, depuis le club ou la voiture. 390×844 (iPhone 14).">
+          <DCArtboard id="m-home" label="18 · Accueil mobile" width={420} height={870}>
+            <MobileFrame label="iPhone 14 · Accueil"><MobileHome /></MobileFrame>
+          </DCArtboard>
+          <DCArtboard id="m-tarifs" label="19 · Tarifs mobile" width={420} height={870}>
+            <MobileFrame label="iPhone 14 · Tarifs"><MobileTarifs /></MobileFrame>
+          </DCArtboard>
+          <DCArtboard id="m-nav" label="26 · Menu mobile" width={420} height={870}>
+            <MobileFrame label="iPhone 14 · Navigation"><MobileNavOpen /></MobileFrame>
+          </DCArtboard>
+          <DCArtboard id="m-equipe" label="27 · Équipe mobile" width={420} height={870}>
+            <MobileFrame label="iPhone 14 · Équipe"><MobileEquipe /></MobileFrame>
+          </DCArtboard>
+          <DCArtboard id="m-contact" label="28 · Map & Contact mobile" width={420} height={870}>
+            <MobileFrame label="iPhone 14 · Contact"><MobileMapContact /></MobileFrame>
+          </DCArtboard>
+        </DCSection>
+
+        <DCPostIt top={20} left={60} rotate={-3}>
+          <strong>Brief :</strong> refonte complète du site
+          + nouvelle interface d'administration (Annabel, JJ, Noëlle).
+          5 pages publiques · 12 vues admin · responsive mobile.
+        </DCPostIt>
+      </DesignCanvas>
+    );
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
